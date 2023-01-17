@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B94FE772-8703-48B8-B6F6-06DAE8319635}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transactions", "Transactions", "{5528FEB4-628E-4793-8A81-821C50E3558F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{31D572F9-6575-49D4-963D-C800D6576744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.App", "src\Transactions\Transactions.App\Transactions.App.csproj", "{9668523F-553C-446A-9C9B-7525B52BDE9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Presentation", "src\Transactions\Transactions.Presentation\Transactions.Presentation.csproj", "{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Domain", "src\Transactions\Transactions.Domain\Transactions.Domain.csproj", "{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Application", "src\Transactions\Transactions.Application\Transactions.Application.csproj", "{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A81552E-6144-4CCB-A8C9-265B61AF4CE8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{5CF34B0A-A87C-43BA-8A3A-165AF1B6872A}"
+	ProjectSection(SolutionItems) = preProject
+		docker\.dockerignore = docker\.dockerignore
+		docker\.env = docker\.env
+		docker\docker-compose.override.yml = docker\docker-compose.override.yml
+		docker\docker-compose.yml = docker\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Infrastructure", "src\Transactions\Transactions.Infrastructure\Transactions.Infrastructure.csproj", "{1F88193A-F6E7-464A-B5F8-D2D6D497917B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9668523F-553C-446A-9C9B-7525B52BDE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9668523F-553C-446A-9C9B-7525B52BDE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9668523F-553C-446A-9C9B-7525B52BDE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9668523F-553C-446A-9C9B-7525B52BDE9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F88193A-F6E7-464A-B5F8-D2D6D497917B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F88193A-F6E7-464A-B5F8-D2D6D497917B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F88193A-F6E7-464A-B5F8-D2D6D497917B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F88193A-F6E7-464A-B5F8-D2D6D497917B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5528FEB4-628E-4793-8A81-821C50E3558F} = {B94FE772-8703-48B8-B6F6-06DAE8319635}
+		{31D572F9-6575-49D4-963D-C800D6576744} = {B94FE772-8703-48B8-B6F6-06DAE8319635}
+		{9668523F-553C-446A-9C9B-7525B52BDE9A} = {5528FEB4-628E-4793-8A81-821C50E3558F}
+		{671C12A8-53BD-4750-AEE3-7F93C0EA66D1} = {5528FEB4-628E-4793-8A81-821C50E3558F}
+		{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A} = {5528FEB4-628E-4793-8A81-821C50E3558F}
+		{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72} = {5528FEB4-628E-4793-8A81-821C50E3558F}
+		{5CF34B0A-A87C-43BA-8A3A-165AF1B6872A} = {4A81552E-6144-4CCB-A8C9-265B61AF4CE8}
+		{1F88193A-F6E7-464A-B5F8-D2D6D497917B} = {5528FEB4-628E-4793-8A81-821C50E3558F}
+	EndGlobalSection
+EndGlobal

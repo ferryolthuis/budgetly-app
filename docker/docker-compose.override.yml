@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  ### TRANSACTIONS MICROSERVICE
+  transactions:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
+    
+  transactions-db:    
+    ports:
+      - '8001:5432'
+  
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_MAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PW}
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "8900:80"
+    restart: unless-stopped
+        
+volumes:
+  pgadmin:

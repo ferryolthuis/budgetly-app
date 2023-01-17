@@ -1,1 +1,1 @@
-# budgetly-app
+# budgetly
