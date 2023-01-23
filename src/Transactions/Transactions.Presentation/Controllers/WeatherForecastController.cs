@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Transactions.Domain.Entities;
 
-namespace Transactions.API.Controllers;
+namespace Transactions.Presentation.Controllers;
 
 [ApiController]
 [Route("[controller]")]

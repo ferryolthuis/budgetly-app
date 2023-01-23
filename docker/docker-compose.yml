@@ -6,22 +6,22 @@ services:
     container_name: transactions-service
     image: ${DOCKER_REGISTRY-}budgetly-transactions
     build:
-      context: .
-      dockerfile: .../src/Transactions/Transactions.App/Dockerfile
+      context: ../
+      dockerfile: src/Transactions/Transactions.App/Dockerfile
     depends_on:
-      - transactions-db
+      - db
     restart: unless-stopped
     
-  transactions-db:
-    container_name: transactions-db
+  db:
+    container_name: db
     image: postgres    
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PW}
       PGDATA: /data/postgres
     volumes:
-      - transactions-db:/data/postgres
+      - db:/data/postgres
     restart: unless-stopped
         
 volumes:
-  transactions-db:
+  db:

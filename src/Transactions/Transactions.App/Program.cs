@@ -1,3 +1,6 @@
+#pragma warning disable CA1852
+#pragma warning disable CS5001
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddApplicationPart(Transactions.Presentation.AssemblyReference.Assembly);
