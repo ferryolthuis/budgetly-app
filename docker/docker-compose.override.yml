@@ -2,27 +2,27 @@ version: '3.4'
 
 services:
   ### TRANSACTIONS MICROSERVICE
-  transactions:
+  transactions-service:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "9000:80"
     
-  db:    
+  budgetly-postgres:    
     ports:
-      - '9001:5432'
+      - '9100:5432'
   
-  pgadmin:
-    container_name: pgadmin
+  budgetly-pgadmin:
+    container_name: budgetly-pgadmin
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_MAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PW}
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_MAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
     volumes:
-      - pgadmin:/var/lib/pgadmin
+      - budgetly-pgadmin:/var/lib/pgadmin
     ports:
       - "9900:80"
     restart: unless-stopped
         
 volumes:
-  pgadmin:
+  budgetly-pgadmin:

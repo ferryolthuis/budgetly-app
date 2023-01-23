@@ -1,12 +1,13 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Shared.Presentation.Abstractions;
 using Transactions.Domain.Entities;
 
 namespace Transactions.Presentation.Controllers;
 
-[ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class WeatherForecastController : ApiController
 {
     private static readonly string[] Summaries =
     {
@@ -15,7 +16,11 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger) => _logger = logger;
+    public WeatherForecastController(ISender sender, ILogger<WeatherForecastController> logger)
+        : base(sender)
+    {
+        _logger = logger;
+    }
 
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()

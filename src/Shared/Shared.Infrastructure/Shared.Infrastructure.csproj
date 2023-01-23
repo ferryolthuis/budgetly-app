@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Shared.Application\Shared.Application.csproj" />
+      <ProjectReference Include="..\Shared.Persistence\Shared.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+      <PackageReference Include="Quartz" Version="3.5.0" />
+    </ItemGroup>
+
+</Project>

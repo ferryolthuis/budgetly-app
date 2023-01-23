@@ -190,40 +190,6 @@ dotnet_naming_style.begins_with_i.required_suffix =
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
-# StyleCop.Analyzers
-
-# SA0001: XML comment analysis is disabled due to project configuration
-dotnet_diagnostic.sa0001.severity = none
-
-# SA1101: Prefix local calls with this
-dotnet_diagnostic.sa1101.severity = none
-
-# SA1200: Using directive should appear within a namespace declaration
-dotnet_diagnostic.sa1200.severity = none
-
-# SA1309: Field names should not begin with underscore
-dotnet_diagnostic.sa1309.severity = none
-
-# SA1413: Use trailing comma in multi-line initializers
-dotnet_diagnostic.sa1413.severity = none
-
-# SA1516: Elements should be seperated by blank line
-dotnet_diagnostic.sa1516.severity = none
-
-# SA1600: Elements should be documented
-dotnet_diagnostic.sa1600.severity = none
-
-# SA1633: File should have header
-dotnet_diagnostic.sa1633.severity = none
-
-# SA1649: File name should match first type name
-dotnet_diagnostic.sa1649.severity = none
-
-# SonarAnalyzers.CSharp
-
-# S1121: Assignments should not be made from within sub-expressions
-dotnet_diagnostic.s1121.severity = none
-
 # NET.CodeAnalyzers
 
 # CA1000: Do not declare static members on generic types
@@ -269,7 +235,7 @@ dotnet_diagnostic.ca1848.severity = none
 dotnet_diagnostic.ca2007.severity = none
 
 # CA2225: Operator overloads have named alternates
-dotnet_diagnostic.ca2225.severity = nones
+dotnet_diagnostic.ca2225.severity = none
 
 # CA2326: Do not use TypeNameHandling values other than None
 dotnet_diagnostic.ca2326.severity = none

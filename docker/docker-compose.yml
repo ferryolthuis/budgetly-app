@@ -2,26 +2,41 @@ version: '3.4'
 
 services:
   ### TRANSACTIONS MICROSERVICE
-  transactions:
+  transactions-service:
     container_name: transactions-service
     image: ${DOCKER_REGISTRY-}budgetly-transactions
     build:
       context: ../
       dockerfile: src/Transactions/Transactions.App/Dockerfile
     depends_on:
-      - db
+      - budgetly-postgres
     restart: unless-stopped
     
-  db:
-    container_name: db
+  budgetly-postgres:
+    container_name: budgetly-postgres
     image: postgres    
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PW}
-      PGDATA: /data/postgres
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - PGDATA=/data/postgres
     volumes:
-      - db:/data/postgres
+      - budgetly-postgres:/data/postgres
+    restart: unless-stopped
+    
+  budgetly-seq:
+    container_name: budgetly-seq
+    image: datalust/seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINUSERNAME=${SEQ_USER}
+      - SEQ_FIRSTRUN_ADMINPASSWORDHASH=${SEQ_PW}
+    volumes:
+      - budgetly-seq:/data
+    ports:
+      - "9901:80"
+      - "5341:5341"
     restart: unless-stopped
         
 volumes:
-  db:
+  budgetly-postgres:
+  budgetly-seq:

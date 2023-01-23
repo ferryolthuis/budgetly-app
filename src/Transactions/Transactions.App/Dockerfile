@@ -5,12 +5,13 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["src/Transactions", ".editorconfig", "Directory.Build.props", "./"]
-RUN dotnet restore "Transactions.App/Transactions.App.csproj"
-RUN dotnet build "Transactions.App/Transactions.App.csproj" -c Release -o /app/build
+COPY ["src/Transactions", "Transactions/"]
+COPY ["src/Shared", "Shared/"]
+RUN dotnet restore "Transactions/Transactions.App/Transactions.App.csproj"
+RUN dotnet build "Transactions/Transactions.App/Transactions.App.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Transactions.App/Transactions.App.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Transactions/Transactions.App/Transactions.App.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

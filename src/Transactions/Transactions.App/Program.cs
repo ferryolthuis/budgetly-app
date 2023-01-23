@@ -1,14 +1,16 @@
-#pragma warning disable CA1852
-#pragma warning disable CS5001
+using Shared.App.Configuration;
+using Transactions.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers().AddApplicationPart(Transactions.Presentation.AssemblyReference.Assembly);
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.InstallServices(builder.Configuration, Transactions.App.AssemblyReference.Assembly);
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<TransactionsAppDbContext>();
+    await context.Database.EnsureCreatedAsync();
+}
 
 if (app.Environment.IsDevelopment())
 {
@@ -17,9 +19,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
