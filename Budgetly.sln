@@ -2,17 +2,17 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B94FE772-8703-48B8-B6F6-06DAE8319635}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transactions", "Transactions", "{5528FEB4-628E-4793-8A81-821C50E3558F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BankAccounts", "BankAccounts", "{5528FEB4-628E-4793-8A81-821C50E3558F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{31D572F9-6575-49D4-963D-C800D6576744}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.App", "src\Transactions\Transactions.App\Transactions.App.csproj", "{9668523F-553C-446A-9C9B-7525B52BDE9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.App", "src\Transactions\BankAccounts.App\BankAccounts.App.csproj", "{9668523F-553C-446A-9C9B-7525B52BDE9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Presentation", "src\Transactions\Transactions.Presentation\Transactions.Presentation.csproj", "{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Presentation", "src\Transactions\BankAccounts.Presentation\BankAccounts.Presentation.csproj", "{671C12A8-53BD-4750-AEE3-7F93C0EA66D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Domain", "src\Transactions\Transactions.Domain\Transactions.Domain.csproj", "{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Domain", "src\Transactions\BankAccounts.Domain\BankAccounts.Domain.csproj", "{FAA4D5A9-66A6-4EA4-84EC-879B5CCEB21A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Application", "src\Transactions\Transactions.Application\Transactions.Application.csproj", "{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Application", "src\Transactions\BankAccounts.Application\BankAccounts.Application.csproj", "{D16E49EC-8B71-4D4A-9B04-7F1BD76D6A72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A81552E-6144-4CCB-A8C9-265B61AF4CE8}"
 	ProjectSection(SolutionItems) = preProject
@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{5CF34B
 		docker\docker-compose.yml = docker\docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Infrastructure", "src\Transactions\Transactions.Infrastructure\Transactions.Infrastructure.csproj", "{1F88193A-F6E7-464A-B5F8-D2D6D497917B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Infrastructure", "src\Transactions\BankAccounts.Infrastructure\BankAccounts.Infrastructure.csproj", "{1F88193A-F6E7-464A-B5F8-D2D6D497917B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Domain", "src\Shared\Shared.Domain\Shared.Domain.csproj", "{B06F1B4F-E7C4-47E1-9A55-9EFA90F688C5}"
 EndProject
@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Infrastructure", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Persistence", "src\Shared\Shared.Persistence\Shared.Persistence.csproj", "{1B196E2D-8404-415A-BB5B-64F55E6BCD2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transactions.Persistence", "src\Transactions\Transactions.Persistence\Transactions.Persistence.csproj", "{3A05C274-D220-4EEA-A5E1-E921CB5AEB18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts.Persistence", "src\Transactions\BankAccounts.Persistence\BankAccounts.Persistence.csproj", "{3A05C274-D220-4EEA-A5E1-E921CB5AEB18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.Presentation", "src\Shared\Shared.Presentation\Shared.Presentation.csproj", "{7DD20194-A317-40EF-8152-05F20BE320E8}"
 EndProject

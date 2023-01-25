@@ -4,15 +4,17 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>BankAccounts.Persistence</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MediatR" Version="11.1.0" />
-      <FrameworkReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
+      <ProjectReference Include="..\..\Shared\Shared.Persistence\Shared.Persistence.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Shared.Domain\Shared.Domain.csproj" />
+      <Folder Include="Configurations" />
+      <Folder Include="Migrations" />
+      <Folder Include="Repositories" />
     </ItemGroup>
 
 </Project>
