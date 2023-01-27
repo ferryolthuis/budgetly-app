@@ -22,7 +22,7 @@ public class ProcessOutboxMessagesJob : IJob
 
     public async Task Execute(IJobExecutionContext context)
     {
-        var messages = await _dbContext
+        List<OutboxMessage> messages = await _dbContext
             .Set<OutboxMessage>()
             .Where(m => m.ProcessedOnUtc == null)
             .Take(20)

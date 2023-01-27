@@ -1,10 +1,7 @@
 version: '3.4'
 
 services:
-  ### TRANSACTIONS MICROSERVICE
-  transactions-service:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+  bankaccounts-service:
     ports:
       - "9000:80"
     

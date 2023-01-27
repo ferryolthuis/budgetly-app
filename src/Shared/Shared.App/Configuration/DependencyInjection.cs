@@ -11,7 +11,7 @@ public static class DependencyInjection
         IConfiguration configuration,
         params Assembly[] assemblies)
     {
-        var serviceInstallers = assemblies
+        IEnumerable<IServiceInstaller> serviceInstallers = assemblies
             .SelectMany(a => a.DefinedTypes)
             .Where(IsAssignableToType<IServiceInstaller>)
             .Select(Activator.CreateInstance)
@@ -26,7 +26,6 @@ public static class DependencyInjection
 
         static bool IsAssignableToType<T>(TypeInfo typeInfo) =>
             typeof(T).IsAssignableFrom(typeInfo) &&
-            !typeInfo.IsInterface &&
-            !typeInfo.IsAbstract;
+            typeInfo is { IsInterface: false, IsAbstract: false };
     }
 }

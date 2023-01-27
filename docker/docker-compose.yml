@@ -1,13 +1,12 @@
 version: '3.4'
 
 services:
-  ### TRANSACTIONS MICROSERVICE
-  transactions-service:
-    container_name: transactions-service
-    image: ${DOCKER_REGISTRY-}budgetly-transactions
+  bankaccounts-service:
+    container_name: bankaccounts-service
+    image: ${DOCKER_REGISTRY-}budgetly-bankaccounts
     build:
       context: ../
-      dockerfile: src/Transactions/Transactions.App/Dockerfile
+      dockerfile: src/BankAccounts/BankAccounts.App/Dockerfile
     depends_on:
       - budgetly-postgres
     restart: unless-stopped

@@ -22,9 +22,9 @@ public sealed class UpdateAuditableEntitiesInterceptor : SaveChangesInterceptor
                 cancellationToken);
         }
 
-        var entries = dbContext.ChangeTracker.Entries<IAuditableEntity>();
+        IEnumerable<EntityEntry<IAuditableEntity>> entries = dbContext.ChangeTracker.Entries<IAuditableEntity>();
 
-        foreach (var entityEntry in entries)
+        foreach (EntityEntry<IAuditableEntity> entityEntry in entries)
         {
             if (entityEntry.State == EntityState.Added)
             {

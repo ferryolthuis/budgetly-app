@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Transactions.Application</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Shared\Shared.Application\Shared.Application.csproj" />
+      <ProjectReference Include="..\BankAccounts.Domain\BankAccounts.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
