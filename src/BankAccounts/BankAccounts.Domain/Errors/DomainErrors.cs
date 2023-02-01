@@ -24,6 +24,14 @@ public static class DomainErrors
         public static readonly Func<Guid, Error> NotFound = id => new Error(
             "Transaction.NotFound",
             $"The transaction with the identifier {id} was not found.");
+        
+        public static readonly Func<Error> BothInflowAndOutflow = () => new Error(
+            "Transaction.BothInflowAndOutflow",
+            "A transaction cannot have both an inflow and outflow != 0.");
+        
+        public static readonly Func<Error> NoInflowOrOutflow = () => new Error(
+            "Transaction.NoInflowOrOutflow",
+            "A transaction must have either an inflow or outflow != 0.");
     }
     
     public static class Money

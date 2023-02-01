@@ -9,6 +9,7 @@ services:
       dockerfile: src/BankAccounts/BankAccounts.App/Dockerfile
     depends_on:
       - budgetly-postgres
+      - budgetly-seq
     restart: unless-stopped
     
   budgetly-postgres:

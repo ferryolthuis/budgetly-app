@@ -16,7 +16,7 @@ internal sealed class BankAccountConfiguration : IEntityTypeConfiguration<BankAc
         builder
             .HasMany(x => x.Transactions)
             .WithOne()
-            .HasForeignKey(x => x.BankAccountId);
-
+            .HasForeignKey(x => x.BankAccountId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

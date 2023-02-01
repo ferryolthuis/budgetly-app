@@ -1,5 +1,6 @@
 ﻿using BankAccounts.Application.Repositories;
 using BankAccounts.Application.Transactions.Commands.CreateTransaction;
+using BankAccounts.Domain.Entities;
 using BankAccounts.Domain.Errors;
 using BankAccounts.Domain.ValueObjects;
 using Shared.Application.Messaging;
@@ -26,16 +27,15 @@ internal sealed class CreateTransactionCommandHandler : ICommandHandler<CreateTr
 
     public async Task<Result<Guid>> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
     {
-        var bankAccount = await _bankAccountRepository
-            .GetByIdAsync(request.BankAccountId, cancellationToken);
+        BankAccount? bankAccount = await _bankAccountRepository.GetByIdAsync(request.BankAccountId, cancellationToken);
 
         if (bankAccount is null)
         {
             return Result.Failure<Guid>(DomainErrors.BankAccount.IdNotFound(request.BankAccountId));
         }
         
-        var outflowResult = Money.Create(request.Outflow);
-        var inflowResult = Money.Create(request.Inflow);
+        Result<Money> outflowResult = Money.FromAmount(request.Outflow);
+        Result<Money> inflowResult = Money.FromAmount(request.Inflow);
         
         if (outflowResult.IsFailure)
         {
@@ -46,7 +46,7 @@ internal sealed class CreateTransactionCommandHandler : ICommandHandler<CreateTr
             return Result.Failure<Guid>(inflowResult.Error);
         }
         
-        var transaction = bankAccount.AddTransaction(
+        Result<Transaction> transaction = bankAccount.AddTransaction(
             request.Date, 
             request.Payee, 
             request.Category, 
@@ -56,7 +56,6 @@ internal sealed class CreateTransactionCommandHandler : ICommandHandler<CreateTr
 
         if (transaction.IsFailure)
         {
-            // Log error
             return Result.Failure<Guid>(transaction.Error);
         }
 

@@ -21,6 +21,26 @@ public abstract class ValueObject : IEquatable<ValueObject>
                 default(int),
                 HashCode.Combine);
     }
+    
+    public static bool operator ==(ValueObject a, ValueObject b)
+    {
+        if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+        {
+            return true;
+        }
+
+        if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+        {
+            return false;
+        }
+
+        return a.Equals(b);
+    }
+
+    public static bool operator !=(ValueObject a, ValueObject b)
+    {
+        return !(a == b);
+    }
 
     private bool ValuesAreEqual(ValueObject other)
     {

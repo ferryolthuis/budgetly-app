@@ -4,7 +4,8 @@ services:
   bankaccounts-service:
     ports:
       - "9000:80"
-    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
   budgetly-postgres:    
     ports:
       - '9100:5432'

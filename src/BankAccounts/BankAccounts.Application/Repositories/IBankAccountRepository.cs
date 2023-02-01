@@ -8,6 +8,8 @@ public interface IBankAccountRepository
 
     Task<BankAccount?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
+    Task<IEnumerable<BankAccount>> GetAll(CancellationToken cancellationToken = default);
+
     Task<BankAccount?> GetByIdWithTransactionsAsync(Guid id, CancellationToken cancellationToken = default);
 
     void Add(BankAccount bankAccount);

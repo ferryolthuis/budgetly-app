@@ -26,6 +26,12 @@ internal sealed class BankAccountRepository : IBankAccountRepository
             .Where(bankAccount => bankAccount.Id == id)
             .FirstOrDefaultAsync(cancellationToken);
     }
+    
+    public async Task<IEnumerable<BankAccount>> GetAll(CancellationToken cancellationToken = default)
+    {
+        return await _dbContext.Set<BankAccount>()
+            .ToListAsync(cancellationToken);
+    }
 
     public async Task<BankAccount?> GetByIdWithTransactionsAsync(Guid id, CancellationToken cancellationToken = default)
     {

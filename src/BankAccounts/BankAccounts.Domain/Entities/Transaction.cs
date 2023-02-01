@@ -1,11 +1,13 @@
-﻿using BankAccounts.Domain.ValueObjects;
+﻿using BankAccounts.Domain.Errors;
+using BankAccounts.Domain.ValueObjects;
 using Shared.Domain.Primitives;
+using Shared.Domain.Result;
 
 namespace BankAccounts.Domain.Entities;
 
 public sealed class Transaction : Entity
 {
-    internal Transaction(
+    private Transaction(
         Guid id, 
         DateOnly date, 
         string payee,
@@ -13,10 +15,10 @@ public sealed class Transaction : Entity
         string memo,
         Money outflow,
         Money inflow,
-        BankAccount bankAccount)
+        Guid bankAccountId)
         : base(id)
     {
-        BankAccountId = bankAccount.Id;
+        BankAccountId = bankAccountId;
         Date = date;
         Payee = payee;
         Category = category;
@@ -27,6 +29,26 @@ public sealed class Transaction : Entity
 
     private Transaction()
     {
+    }
+    
+    public static Result<Transaction> Create(Guid id, 
+        DateOnly date, 
+        string payee,
+        string category,
+        string memo,
+        Money outflow,
+        Money inflow,
+        BankAccount bankAccount)
+    {
+        if (outflow != Money.Zero() && inflow != Money.Zero())
+        {
+            return Result.Failure<Transaction>(DomainErrors.Transaction.BothInflowAndOutflow());
+        }
+        if (outflow == Money.Zero() && inflow == Money.Zero())
+        {
+            return Result.Failure<Transaction>(DomainErrors.Transaction.NoInflowOrOutflow());
+        }
+        return new Transaction(id, date, payee, category, memo, outflow, inflow, bankAccount.Id);
     }
     
     public Guid BankAccountId { get; private set; }

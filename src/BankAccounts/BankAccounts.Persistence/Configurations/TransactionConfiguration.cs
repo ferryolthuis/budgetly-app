@@ -16,10 +16,10 @@ internal sealed class TransactionConfiguration : IEntityTypeConfiguration<Transa
 
         builder
             .Property(x => x.Inflow)
-            .HasConversion(x => x.Value, v => Money.Create(v).Value);
+            .HasConversion(x => x.Value, v => Money.FromAmount(v).Value);
         
         builder
             .Property(x => x.Outflow)
-            .HasConversion(x => x.Value, v => Money.Create(v).Value);
+            .HasConversion(x => x.Value, v => Money.FromAmount(v).Value);
     }
 }

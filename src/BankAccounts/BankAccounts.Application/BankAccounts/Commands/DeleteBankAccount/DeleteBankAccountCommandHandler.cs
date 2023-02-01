@@ -8,30 +8,27 @@ using Shared.Domain.Result;
 
 namespace BankAccounts.Application.Gatherings.CreateGathering;
 
-internal sealed class CreateBankAccountCommandHandler : ICommandHandler<CreateBankAccountCommand, Guid>
+internal sealed class DeleteBankAccountCommandHandler : ICommandHandler<DeleteBankAccountCommand, Guid>
 {
     private readonly IBankAccountRepository _bankAccountRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public CreateBankAccountCommandHandler(IBankAccountRepository bankAccountRepository, IUnitOfWork unitOfWork)
+    public DeleteBankAccountCommandHandler(IBankAccountRepository bankAccountRepository, IUnitOfWork unitOfWork)
     {
         _bankAccountRepository = bankAccountRepository;
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<Result<Guid>> Handle(CreateBankAccountCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Guid>> Handle(DeleteBankAccountCommand request, CancellationToken cancellationToken)
     {
-        BankAccount? bankAccount = await _bankAccountRepository.GetByNameAsync(request.Name, cancellationToken);
+        BankAccount? bankAccount = await _bankAccountRepository.GetByIdAsync(request.BankAccountId, cancellationToken);
 
-        if (bankAccount is not null)
+        if (bankAccount is null)
         {
-            return Result.Failure<Guid>(DomainErrors.BankAccount.DuplicateName(request.Name));
+            return Result.Failure<Guid>(DomainErrors.BankAccount.IdNotFound(request.BankAccountId));
         }
 
-        bankAccount = BankAccount.Create(Guid.NewGuid(), request.Name);
-
-        _bankAccountRepository.Add(bankAccount);
-
+        _bankAccountRepository.Remove(bankAccount);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return bankAccount.Id;

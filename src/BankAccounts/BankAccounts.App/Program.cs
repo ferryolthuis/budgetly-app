@@ -1,18 +1,12 @@
-using BankAccounts.Persistence;
-using Microsoft.EntityFrameworkCore;
+using BankAccounts.App.Initialization;
 using Shared.App.Configuration;
-using AssemblyReference = BankAccounts.App.AssemblyReference;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-builder.Services.InstallServices(builder.Configuration, AssemblyReference.Assembly);
+builder.Services.InstallServices(builder.Configuration, BankAccounts.App.AssemblyReference.Assembly);
 
 WebApplication app = builder.Build();
 
-using (IServiceScope scope = app.Services.CreateScope())
-{
-    BankAccountsAppDbContext context = scope.ServiceProvider.GetRequiredService<BankAccountsAppDbContext>();
-    await context.Database.MigrateAsync();
-}
+app.PrepDatabase(app.Environment.IsDevelopment());
 
 if (app.Environment.IsDevelopment())
 {
